@@ -21,6 +21,7 @@ class TestimonialAdapter(
         val item = testimonials[position]
         holder.tvText.text = item.email
         holder.tvReview.text = item.review
+        holder.imgProfile.setImageDrawable(item.image)
     }
 
     override fun getItemCount(): Int {
@@ -30,5 +31,6 @@ class TestimonialAdapter(
     class ViewHolder(view : RvItemBinding) : RecyclerView.ViewHolder(view.root) {
         val tvText = view.txtEmail
         val tvReview = view.txtReview
+        val imgProfile = view.imgProfile
     }
 }
