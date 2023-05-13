@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -91,7 +92,7 @@
             android:text="london98"
             android:textSize="18sp"
             android:theme="@style/MyTextStyle"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtAcademics"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/txtWork"
             app:layout_constraintTop_toTopOf="@+id/hg1" />
@@ -103,10 +104,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="6dp"
-            android:background="@drawable/button_bg"
+            android:backgroundTint="@color/brightBlueBg"
             android:text="Add Bio"
             android:textAlignment="center"
             android:textColor="#63BEFF"
+            app:cornerRadius="6dp"
             app:layout_constraintEnd_toStartOf="@+id/button2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/vg1"
@@ -117,10 +119,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:background="@drawable/button_bg"
+            android:backgroundTint="@color/brightBlueBg"
             android:text="Share Profile"
             android:textAlignment="center"
             android:textColor="#63BEFF"
+            app:cornerRadius="6dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/button"
             app:layout_constraintEnd_toStartOf="@+id/vg2"
             app:layout_constraintHorizontal_bias="0.5"
@@ -523,6 +526,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -556,6 +560,20 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rvTabs"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/imgProfile"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/vg2"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/imgProfile"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView3"-->
+<!--            tools:layout_height="30dp"-->
+<!--            tools:layout_width="wrap_content" />-->
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/hg1"

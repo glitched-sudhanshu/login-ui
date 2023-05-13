@@ -5,5 +5,6 @@
     <color name="blue">#001E33</color>
     <color name="lightBlue">#637581</color>
     <color name="brightBlue">#63BEFF</color>
+    <color name="brightBlueBg">#1A63BEFF</color>
     <color name="orange">#FC9C3B</color>
 </resources>

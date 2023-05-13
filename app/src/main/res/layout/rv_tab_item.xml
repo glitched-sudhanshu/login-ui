@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/txtTab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello"
+    android:paddingBottom="2dp"
+    android:paddingEnd="8dp"
+    android:paddingStart="8dp"
+    android:paddingTop="2dp"
+    android:theme="@style/MyTextStyle"
+    android:background="@drawable/work_bg"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:textSize="12sp">
+
+</TextView>

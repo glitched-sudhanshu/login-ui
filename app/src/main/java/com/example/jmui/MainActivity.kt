@@ -2,6 +2,7 @@ package com.example.jmui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.ActionBar.Tab
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,6 +50,21 @@ class MainActivity : AppCompatActivity() {
         val layout = LinearLayoutManager(this)
         mBinding?.rvTesti?.adapter = adapter
         mBinding?.rvTesti?.layoutManager = layout
+
+
+        val listTabs = listOf(
+            Tabs("\uD83D\uDCBC Work", ContextCompat.getDrawable(this, R.drawable.work_bg)),
+            Tabs("❤️ Relationship", ContextCompat.getDrawable(this, R.drawable.rlshp_bg)),
+            Tabs("\uD83D\uDCDA Academics", ContextCompat.getDrawable(this, R.drawable.academics_bg)),
+            Tabs("\uD83D\uDCBC Work", ContextCompat.getDrawable(this, R.drawable.work_bg)),
+            Tabs("❤️ Relationship", ContextCompat.getDrawable(this, R.drawable.rlshp_bg)),
+            Tabs("\uD83D\uDCDA Academics", ContextCompat.getDrawable(this, R.drawable.academics_bg)),
+        )
+
+//        val tabAdapter = TabsAdapter(activity = this@MainActivity, listTabs)
+//        val tabLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        mBinding?.rvTabs?.adapter = tabAdapter
+//        mBinding?.rvTabs?.layoutManager = tabLayout
     }
 
     override fun onDestroy() {
