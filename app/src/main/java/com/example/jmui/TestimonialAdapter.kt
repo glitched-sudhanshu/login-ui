@@ -12,25 +12,26 @@ class TestimonialAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): TestimonialAdapter.ViewHolder {
+    ): ViewHolder {
         val binding : RvItemBinding = RvItemBinding.inflate(LayoutInflater.from(activity), parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: TestimonialAdapter.ViewHolder, position: Int) {
         val item = testimonials[position]
-        holder.tvText.text = item.email
-        holder.tvReview.text = item.review
-        holder.imgProfile.setImageDrawable(item.image)
+        holder.bind(item)
     }
+
 
     override fun getItemCount(): Int {
         return testimonials.size
     }
 
-    class ViewHolder(view : RvItemBinding) : RecyclerView.ViewHolder(view.root) {
-        val tvText = view.txtEmail
-        val tvReview = view.txtReview
-        val imgProfile = view.imgProfile
+
+    class ViewHolder(private val binding: RvItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: Testimonial) {
+            binding.item = item
+            binding.executePendingBindings()
+        }
     }
 }

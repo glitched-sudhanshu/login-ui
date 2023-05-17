@@ -1,12 +1,10 @@
 package com.example.jmui
 
 import android.app.Activity
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.jmui.databinding.RvItemBinding
 import com.example.jmui.databinding.RvTabItemBinding
 
 class TabsAdapter(private val activity: Activity, private val tabList : List<Tabs>) : RecyclerView.Adapter<TabsAdapter.ViewHolder>() {
@@ -18,10 +16,11 @@ class TabsAdapter(private val activity: Activity, private val tabList : List<Tab
 
     override fun onBindViewHolder(holder: TabsAdapter.ViewHolder, position: Int) {
         val item = tabList[position]
-        holder.tvText.text = item.string
+        holder.tvText.text = item.title
         holder.tvText.background = item.background
-        Log.e("recycler", "onBindViewHolder: ${tabList.size}", )
-        Toast.makeText(activity.baseContext, "${tabList.size}", Toast.LENGTH_SHORT).show()
+        holder.tvText.setOnClickListener{
+            Toast.makeText(activity.baseContext, "${item.title} clicked", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
