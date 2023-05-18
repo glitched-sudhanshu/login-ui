@@ -1,4 +1,4 @@
-package com.example.jmui
+package com.example.jmui.model
 
 import android.graphics.drawable.Drawable
 

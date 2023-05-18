@@ -5,19 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="user"
+            type="com.example.jmui.model.UserProfile" />
     </data>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
+        tools:context=".views.MainActivity"
         android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".MainActivity">
+            tools:context=".views.MainActivity">
 
             <ImageView
                 android:id="@+id/imgBack"
@@ -98,7 +100,8 @@
                 android:id="@+id/txtProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="london98"
+                android:text="@={user.name}"
+                tools:text="london98"
                 android:textSize="18sp"
                 android:theme="@style/MyTextStyle"
                 app:layout_constraintEnd_toEndOf="@+id/txtAcademics"
@@ -262,7 +265,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:text="18543"
+                            android:text="@={user.smiles}"
+                            tools:text="12236"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:theme="@style/MyTextStyle"
@@ -321,7 +325,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:text="15334"
+                            android:text="@={user.chats}"
+                            tools:text="14523"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:theme="@style/MyTextStyle"
@@ -464,7 +469,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:text="0"
+                            android:text="@={user.cash}"
+                            tools:text="0"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:theme="@style/MyTextStyle"

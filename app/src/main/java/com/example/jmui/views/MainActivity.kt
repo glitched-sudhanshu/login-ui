@@ -1,35 +1,34 @@
-package com.example.jmui
+package com.example.jmui.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar.Tab
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.example.jmui.R
+import com.example.jmui.model.Tabs
+import com.example.jmui.adapters.TabsAdapter
+import com.example.jmui.model.Testimonial
+import com.example.jmui.adapters.TestimonialAdapter
 import com.example.jmui.databinding.ActivityMainBinding
+import com.example.jmui.model.UserProfile
+import com.example.jmui.viewmodels.MainViewModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private var mBinding: ActivityMainBinding? = null
-    private val user = UserProfile()
-
+    private lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        user.cash = "0"
-        user.image = ContextCompat.getDrawable(this, R.drawable.ic_avatar)
-        user.chats = "15334"
-        user.smiles = "18543"
-        user.name = "london98"
-
-
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mBinding?.user = user
+        mBinding?.user = viewModel.user
 
         val list = listOf(
             Testimonial(
@@ -56,10 +55,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 " @rolyn",
                 "Best decision ever made!",
                 ContextCompat.getDrawable(this, R.drawable.avatar_smarty)
+            ),
+            Testimonial(
+                " @ketan",
+                "Best app in the market",
+                ContextCompat.getDrawable(this, R.drawable.avatar_piyush)
+            ),
+            Testimonial(
+                " @binks",
+                "Healthy to young minds",
+                ContextCompat.getDrawable(this, R.drawable.avatar_cutie)
+            ),
+            Testimonial(
+                " @pinkie",
+                "Best therapy!",
+                ContextCompat.getDrawable(this, R.drawable.avatar_smarty)
             )
         )
 
-        val adapter = TestimonialAdapter(activity = this@MainActivity, list)
+        val adapter = TestimonialAdapter(list)
         val layout = LinearLayoutManager(this)
         mBinding?.rvTesti?.adapter = adapter
         mBinding?.rvTesti?.layoutManager = layout
@@ -83,12 +97,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             ),
         )
 
-        val tabAdapter = TabsAdapter(activity = this@MainActivity, listTabs)
+        val tabAdapter = TabsAdapter(this, listTabs)
         val tabLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         mBinding?.rvTabs?.adapter = tabAdapter
         mBinding?.rvTabs?.layoutManager = tabLayout
-
-
 
         clickListeners()
     }
@@ -155,11 +167,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "Premium clicked", Toast.LENGTH_SHORT).show()
             }
 
-            mBinding!!.btnUpgrade?.id -> {
+            mBinding!!.btnUpgrade.id -> {
                 Toast.makeText(this, "Upgrade clicked", Toast.LENGTH_SHORT).show()
             }
 
-            mBinding!!.btnTnE?.id -> {
+            mBinding!!.btnTnE.id -> {
                 Toast.makeText(this, "Talk & Earn clicked", Toast.LENGTH_SHORT).show()
             }
         }
