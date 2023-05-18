@@ -2,7 +2,6 @@ package com.example.jmui.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -15,7 +14,6 @@ import com.example.jmui.adapters.TabsAdapter
 import com.example.jmui.model.Testimonial
 import com.example.jmui.adapters.TestimonialAdapter
 import com.example.jmui.databinding.ActivityMainBinding
-import com.example.jmui.model.UserProfile
 import com.example.jmui.viewmodels.MainViewModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -97,7 +95,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             ),
         )
 
-        val tabAdapter = TabsAdapter(this, listTabs)
+        val tabAdapter = TabsAdapter(applicationContext, listTabs)
         val tabLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         mBinding?.rvTabs?.adapter = tabAdapter
         mBinding?.rvTabs?.layoutManager = tabLayout
@@ -106,19 +104,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun clickListeners() {
-        mBinding!!.imgProfile.setOnClickListener(this)
-        mBinding!!.txtProfile.setOnClickListener(this)
-        mBinding!!.imgWallet.setOnClickListener(this)
-        mBinding!!.imgSettings.setOnClickListener(this)
-        mBinding!!.imgBack.setOnClickListener(this)
-        mBinding!!.btnAddBio.setOnClickListener(this)
-        mBinding!!.btnShareProfile.setOnClickListener(this)
-        mBinding!!.cvSmile.setOnClickListener(this)
-        mBinding!!.cvCash.setOnClickListener(this)
-        mBinding!!.cvChats.setOnClickListener(this)
-        mBinding!!.cvPremium.setOnClickListener(this)
-        mBinding!!.btnTnE.setOnClickListener(this)
-        mBinding!!.btnUpgrade.setOnClickListener(this)
+        mBinding?.let {
+            with(it){
+                imgProfile.setOnClickListener(this@MainActivity)
+                txtProfile.setOnClickListener(this@MainActivity)
+                imgWallet.setOnClickListener(this@MainActivity)
+                imgSettings.setOnClickListener(this@MainActivity)
+                imgBack.setOnClickListener(this@MainActivity)
+                btnAddBio.setOnClickListener(this@MainActivity)
+                btnShareProfile.setOnClickListener(this@MainActivity)
+                cvSmile.setOnClickListener(this@MainActivity)
+                cvCash.setOnClickListener(this@MainActivity)
+                cvChats.setOnClickListener(this@MainActivity)
+                cvPremium.setOnClickListener(this@MainActivity)
+                btnTnE.setOnClickListener(this@MainActivity)
+                btnUpgrade.setOnClickListener(this@MainActivity)
+            }
+        }
     }
 
     override fun onClick(view: View?) {
